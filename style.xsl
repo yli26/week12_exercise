@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html" encoding="UTF-8"/>
-
 
 <xsl:template match="/">
-  <html>
-    <head>
-      <meta charset="utf-8"></meta>
-      <title><xsl:value-of select="//tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/</title>
-       <!-- css styles -->
-       <!-- <link rel="stylesheet" type="text/css" href="styles.css"></link> -->
-     </head>
-     <body>
-       <header>
-       <h1>Gone Girl</h1>
-     </header>
+ <html>
+   <body>
+     <h3>Gone with the wind</h3>
+     <xsl:apply-templates/>
 
-        <!-- <caption>Ancient Chinese Sites</caption> -->
-
-          </xsl:apply-templates>
-        </tbody>
-      </table>
-    </body>
+   </body>
   </html>
+  </xsl:template>
+
+
+<!--
+
+  <xsl:template match="fileDesc">
+   <tr>
+  <xsl:apply-templates select="titleStmt"/>
+  <xsl:apply-templates select="publicationStmt"/>
+  <xsl:apply-templates select="sourceDesc"/>
+   </tr>
+  </xsl:template>
+
+  <xsl:template match="titleStmt">
+   <td>
+     <xsl:value-of select="title"/>
+   </td>
+  </xsl:template>
+
+  <xsl:template match="publicationStmt">
+ <td>
+   <xsl:value-of select="publisher"/>
+   <xsl:value-of select="date"/>
+ </td>
 </xsl:template>
 
+<xsl:template match="sourceDesc">
+ <td>
+   <xsl:value-of select="p"/>
+ </td>
+</xsl:template>-->
 
-
-<xsl:template match="tei:teiHeader">
-  <xsl:apply-templates select="//tei:titleStmt"/>
-</xsl:template>
-
-</xsl:stylesheet>
+</xsl:stylesheet> 
