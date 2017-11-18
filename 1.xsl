@@ -18,15 +18,17 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
         <thead>
         <tr>
-        <th>Title</th>
+        <th>Name</th>
+        <th>Author</th>
         <th>Publication</th>
         <th>About the book</th>
+        <th>Plot Summary</th>
 
         </tr>
         </thead>
         <tbody>
-             <xsl:apply-templates select="TEI/teiHeader/fileDesc">
-                 </xsl:apply-templates>
+             <xsl:apply-templates select="TEI">
+             </xsl:apply-templates>
         </tbody>
              </table>
            </body>
@@ -34,25 +36,32 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         </xsl:template>
 
 
-    <xsl:template match="fileDesc">
+    <xsl:template match="TEI">
           <tr>
-          <xsl:apply-templates select="titleStmt"/>
+          <xsl:apply-templates select="teiHeader/fileDesc/titleStmt"/>
 
-          <xsl:apply-templates select="publicationStmt"/>
+          <xsl:apply-templates select="teiHeader/fileDesc/publicationStmt"/>
 
-         <xsl:apply-templates select="sourceDesc"/>
+         <xsl:apply-templates select="teiHeader/fileDesc/sourceDesc"/>
+
+            <xsl:apply-templates select="text"/>
           </tr>
     </xsl:template>
+
+
 
       <xsl:template match="titleStmt">
        <td>
         <xsl:value-of select="title"/>
+      </td>
+      <td>
+        <xsl:value-of select="author"/>
        </td>
       </xsl:template>
 
       <xsl:template match="publicationStmt">
        <td>
-         <xsl:value-of select="publisher"/>
+         <xsl:value-of select="publisher"/><br/>
          <xsl:value-of select="date"/>
        </td>
       </xsl:template>
@@ -60,6 +69,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <xsl:template match="sourceDesc">
        <td>
          <xsl:value-of select="p"/>
+       </td>
+      </xsl:template>
+
+      <xsl:template match="text">
+       <td>
+         <xsl:value-of select="body/div[@type='summary']"/>
        </td>
       </xsl:template>
 
