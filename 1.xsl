@@ -18,12 +18,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <thead>
         <tr>
           <th>Book</th>
-          <th>Title</th>
-          <th>Author</th>
+          <th>About</th>
+          <!-- <th>Title</th>
+          <th>Author</th> -->
           <th>Publication</th>
-          <th>About the book</th>
           <th>Plot Summary</th>
-          <!-- <th>Characters</th> -->
+          <th>Praise for Gone Girl</th>
         </tr>
       </thead>
         <tbody>
@@ -36,15 +36,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         </xsl:template>
 
 
-    <xsl:template match="TEI">
-          <tr>
-            <xsl:apply-templates select="bookImages"/>
-            <xsl:apply-templates select="teiHeader/fileDesc/titleStmt"/>
-            <xsl:apply-templates select="teiHeader/fileDesc/publicationStmt"/>
-            <xsl:apply-templates select="teiHeader/fileDesc/sourceDesc"/>
-            <xsl:apply-templates select="text"/>
-          </tr>
-    </xsl:template>
+        <xsl:template match="TEI">
+              <tr>
+                <xsl:apply-templates select="bookImages"/>
+                <xsl:apply-templates select="teiHeader/fileDesc/titleStmt"/>
+                <xsl:apply-templates select="teiHeader/fileDesc/publicationStmt"/>
+                <xsl:apply-templates select="text"/>
+              </tr>
+        </xsl:template>
+
 
     <xsl:template match="bookImages">
       <td>
@@ -61,30 +61,30 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
       <xsl:template match="titleStmt">
        <td>
-         <xsl:value-of select="title"/>
-      </td>
-      <td>
-        <xsl:value-of select="author"/>
-       </td>
+        <h2>Title:</h2>  <xsl:value-of select="title"/><br/><br/>
+        <h2>Author:</h2> <xsl:value-of select="author"/><br/><br/>
+        <h2>Genre:</h2> <xsl:value-of select="genre"/>
+     </td>
       </xsl:template>
 
       <xsl:template match="publicationStmt">
-       <td>
-         <xsl:value-of select="publisher"/><br/>
-         <xsl:value-of select="date"/>
-       </td>
-      </xsl:template>
+        <td>
 
-      <xsl:template match="sourceDesc">
-       <td>
-         <xsl:value-of select="p"/>
-       </td>
+        <h2>Publisher:</h2>  <xsl:value-of select="publisher"/><br/>
+        <br/><br/>
+        <h2>Publish Date:</h2><xsl:value-of select="date"/>
+        </td>
       </xsl:template>
 
       <xsl:template match="text">
        <td>
          <xsl:value-of select="body/div[@type='summary']"/>
        </td>
+       <td>
+         <xsl:value-of select="body/div[@type='praise']"/>
+       </td>
       </xsl:template>
+
+
 
 </xsl:stylesheet>
