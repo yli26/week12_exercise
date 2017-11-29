@@ -28,7 +28,6 @@
 
     <!-- Gone Girl has been widely praised in numerous publications including the New Yorker, The New York Times, Time, Publishers Weekly, Entertainment Weekly, Chatelaine, People, and USA Today. Reviewers express admiration for the novel's suspense, a plot twist involving an unreliable narrator, its psychological dimension, and its examination of a marriage that has become corrosive. Entertainment Weekly describes it as "an ingenious and viperish thriller."
      The New Yorker describes it as a "mostly well-crafted novel," praising its depiction of an "unraveling" marriage and a "recession-hit Midwest," while finding its conclusion somewhat "outlandish." -->
-
        </p>
      </sourceDesc>
    </fileDesc>
@@ -50,4 +49,7 @@
 
    </body>
  </text>
+ <bookImages>
+<image type="jpg" src="images/book.jpg"></image>
+ </bookImages>
  </TEI>

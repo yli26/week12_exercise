@@ -15,17 +15,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      <h3>Gone Girl</h3>
    </header>
       <table border="1">
-
         <thead>
         <tr>
-        <th>Name</th>
-        <th>Author</th>
-        <th>Publication</th>
-        <th>About the book</th>
-        <th>Plot Summary</th>
-
+          <th>Book</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Publication</th>
+          <th>About the book</th>
+          <th>Plot Summary</th>
         </tr>
-        </thead>
+      </thead>
         <tbody>
              <xsl:apply-templates select="TEI">
              </xsl:apply-templates>
@@ -38,21 +37,30 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:template match="TEI">
           <tr>
-          <xsl:apply-templates select="teiHeader/fileDesc/titleStmt"/>
-
-          <xsl:apply-templates select="teiHeader/fileDesc/publicationStmt"/>
-
-         <xsl:apply-templates select="teiHeader/fileDesc/sourceDesc"/>
-
+            <xsl:apply-templates select="bookImages"/>
+            <xsl:apply-templates select="teiHeader/fileDesc/titleStmt"/>
+            <xsl:apply-templates select="teiHeader/fileDesc/publicationStmt"/>
+            <xsl:apply-templates select="teiHeader/fileDesc/sourceDesc"/>
             <xsl:apply-templates select="text"/>
           </tr>
     </xsl:template>
 
+    <xsl:template match="bookImages">
+      <td>
+        <a>
+          <img width="200">
+            <xsl:attribute name="src">
+              <xsl:value-of select="image[@type='jpg']/@src"/>
+            </xsl:attribute>
+          </img>
+        </a>
+      </td>
+    </xsl:template>
 
 
       <xsl:template match="titleStmt">
        <td>
-        <xsl:value-of select="title"/>
+         <xsl:value-of select="title"/>
       </td>
       <td>
         <xsl:value-of select="author"/>

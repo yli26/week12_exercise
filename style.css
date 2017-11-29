@@ -1,7 +1,8 @@
 body {
-  width: 1000px;
+  width: auto;
   margin: auto;
-  background: #fff;
+  /*background: url(images/background.jpg);*/
+  background: #ffddcc;
   font-size: 16px;
   font-family: "Times New Roman", Georgia, Serif;
 }
@@ -9,6 +10,7 @@ body {
 header {
   margin: 10px;
   border-bottom: 1px solid #000;
+  font-size: 30px;
 }
 
 table {
@@ -25,7 +27,12 @@ table caption {
 }
 
 th, td {
+  text-align: center ;
   padding: 10px;
   border-right: 1px solid #555;
   border-bottom: 1px solid #555;
+
+}
+th {
+background-color: #ffa366;
 }
