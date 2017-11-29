@@ -11,12 +11,17 @@
          <author>
            Gillian Flynn
          </author>
+         <Genre>
+           Thriller
+         </Genre>
      </titleStmt>
      <publicationStmt>
          <publisher>
            Crown Publishing Group
          </publisher>
           <date>April, 2012</date>
+          <pages> 432 </pages>
+          <ISBN>978-0307588364</ISBN>
      </publicationStmt>
      <sourceDesc>
        <!-- <author>Gillian Flynn

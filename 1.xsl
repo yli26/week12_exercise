@@ -23,6 +23,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <th>Publication</th>
           <th>About the book</th>
           <th>Plot Summary</th>
+          <!-- <th>Characters</th> -->
         </tr>
       </thead>
         <tbody>
